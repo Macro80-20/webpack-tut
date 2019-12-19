@@ -10,7 +10,8 @@ module.exports = {
     path: path.resolve(__dirname, "./dist")
   },
   // last mandatoryoptions is mode
-  mode: "none"
+  mode: "none",
+  modeu
 };
 
 //in order to run webpack easier we can specificy a escript in json file
