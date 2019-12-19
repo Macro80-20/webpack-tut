@@ -1,13 +1,13 @@
-import SmileyFace from "./Smiley_Face.jpg";
+import SmileyFace from "./smiley.jpg";
 
 const addImage = () => {
-  document.createElement("img");
+  const img = document.createElement("img");
   img.alt = "Smiley face";
   img.width = 300;
-  img.src = "SmileyFace";
+  img.src = SmileyFace;
 
   const body = document.querySelector("body");
-  body.appendChild(img);
+  body.append(img);
 };
 
 export default addImage;

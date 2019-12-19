@@ -77,7 +77,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "dist/";
 /******/
 /******/
 /******/ 	// Load entry module and return exports
@@ -91,8 +91,11 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hello_world__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _add_image_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+
 
 Object(_hello_world__WEBPACK_IMPORTED_MODULE_0__["default"])();
+Object(_add_image_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
 
 
 /***/ }),
@@ -104,6 +107,36 @@ __webpack_require__.r(__webpack_exports__);
 const helloWorld = () => console.log("Hello world ");
 /* harmony default export */ __webpack_exports__["default"] = (helloWorld);
 
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _smiley_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+
+
+const addImage = () => {
+  const img = document.createElement("img");
+  img.alt = "Smiley face";
+  img.width = 300;
+  img.src = _smiley_jpg__WEBPACK_IMPORTED_MODULE_0__["default"];
+
+  const body = document.querySelector("body");
+  body.append(img);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (addImage);
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "543ccff75cd86cd19225c9879b352b2e.jpg");
 
 /***/ })
 /******/ ]);
