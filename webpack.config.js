@@ -11,7 +11,14 @@ module.exports = {
   },
   // last mandatoryoptions is mode
   mode: "none",
-  modeu
+  module: {
+    // each rule is a object itself , with at least two properties
+    rules: [
+      {
+        test: /\.(png|jpg)$/
+      }
+    ]
+  }
 };
 
 //in order to run webpack easier we can specificy a escript in json file
