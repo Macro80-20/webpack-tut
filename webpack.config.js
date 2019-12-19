@@ -3,7 +3,7 @@ const path = require("path");
 // minimal webpack config
 module.exports = {
   //entry points
-  entry: "./src/index.js",
+  entry: "./index.js",
   //output file that will be generated as a result of webpack build. file called bundle insde directory called dist
   output: {
     filename: "bundle.js",
@@ -26,6 +26,10 @@ module.exports = {
         test: /\.(xml)$/,
         // here we specify which loader should be used by wepback when it needs to import XML files. there are many loader to be used need to know which one and install it
         use: ["xml-loader"]
+      },
+      {
+        test: /\.(css)$/,
+        use: ["style-loader", "css-loader"]
       }
     ]
   }
