@@ -30,6 +30,11 @@ module.exports = {
       {
         test: /\.(css)$/,
         use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.(scss)$/,
+        // webpack will invoke loders from right to left. so pay attention to this
+        use: ["style-loader", "css-loader", "sass-loader"]
       }
     ]
   }

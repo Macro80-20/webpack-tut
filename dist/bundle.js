@@ -90,11 +90,11 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _src_hello_world_button_hello_world__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _src_components_hello_world_button_hello_world__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _src_add_image_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
 
 
-Object(_src_hello_world_button_hello_world__WEBPACK_IMPORTED_MODULE_0__["default"])();
+Object(_src_components_hello_world_button_hello_world__WEBPACK_IMPORTED_MODULE_0__["default"])();
 Object(_src_add_image_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
 
 
@@ -104,8 +104,8 @@ Object(_src_add_image_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _hello_world_button_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var _hello_world_button_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_hello_world_button_css__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _hello_world_button_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _hello_world_button_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_hello_world_button_scss__WEBPACK_IMPORTED_MODULE_0__);
 
 
 const body = document.querySelector("body");
@@ -156,7 +156,7 @@ if (content.locals) {
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(4);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".hellow-world-btn {\n  font-size: 20px;\n  padding: 7px 15px;\n  background: green;\n}\n.hello-world-text {\n  color: green;\n  font-weight: bold;\n}\n", ""]);
+exports.push([module.i, ".hello-world-btn {\n  font-size: 20px;\n  padding: 7px 15px;\n  background: green; }\n\n.hello-world-text {\n  color: red;\n  font-weight: bold; }\n", ""]);
 // Exports
 module.exports = exports;
 
