@@ -1,5 +1,6 @@
 const path = require("path");
-
+// we usually dont need webpack plugs in production servers so we always sace as dev depend
+const TerserPlugin = require("terser-webpack-plugin");
 // minimal webpack config
 module.exports = {
   //entry points
@@ -50,7 +51,8 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [new TerserPlugin()]
 };
 
 //in order to run webpack easier we can specificy a escript in json file
