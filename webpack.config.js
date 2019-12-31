@@ -1,6 +1,7 @@
 const path = require("path");
 // we usually dont need webpack plugs in production servers so we always sace as dev depend
 const TerserPlugin = require("terser-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // minimal webpack config
 module.exports = {
   //entry points
@@ -30,12 +31,12 @@ module.exports = {
       },
       {
         test: /\.(css)$/,
-        use: ["style-loader", "css-loader"]
+        use: [MiniCssExtractPlugin.loader, "css-loader"]
       },
       {
         test: /\.(scss)$/,
         // webpack will invoke loders from right to left. so pay attention to this
-        use: ["style-loader", "css-loader", "sass-loader"]
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
       },
       {
         test: /\.js$/,
@@ -52,7 +53,13 @@ module.exports = {
       }
     ]
   },
-  plugins: [new TerserPlugin()]
+  plugins: [
+    new TerserPlugin(),
+    new MiniCssExtractPlugin({
+      //we can extract our css into a separate file and even specify the name
+      filename: "styles.css"
+    })
+  ]
 };
 
 //in order to run webpack easier we can specificy a escript in json file
