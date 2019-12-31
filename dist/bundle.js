@@ -90,13 +90,14 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _src_components_hello_world_button_hello_world__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _src_components_hello_world_button_hello_world_button__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _src_add_image_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
 
+ // helloWorldButton();
 
-Object(_src_components_hello_world_button_hello_world__WEBPACK_IMPORTED_MODULE_0__["default"])();
 Object(_src_add_image_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
-
+var helloWorldButton = new _src_components_hello_world_button_hello_world_button__WEBPACK_IMPORTED_MODULE_0__["default"]();
+helloWorldButton.render();
 
 /***/ }),
 /* 1 */
@@ -106,24 +107,61 @@ Object(_src_add_image_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hello_world_button_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 /* harmony import */ var _hello_world_button_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_hello_world_button_scss__WEBPACK_IMPORTED_MODULE_0__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-const body = document.querySelector("body");
-const helloWorldButton = () => {
-  console.log("Hello world ");
-  const btn = document.createElement("button");
-  btn.innerHTML = "Hello world";
-  btn.classList.add("hello-world-btn");
-  btn.addEventListener("click", () => {
-    const p = document.createElement("p");
-    (p.innerHTML = "hello world"), body.append(p);
-    p.classList.add("hello-world-text");
-    console.log("Hello,World");
-  });
-  body.append(btn);
-};
-/* harmony default export */ __webpack_exports__["default"] = (helloWorldButton);
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+ // const body = document.querySelector("body");
+// const helloWorldButton = () => {
+//   console.log("Hello world ");
+//   const btn = document.createElement("button");
+//   btn.innerHTML = "Hello world";
+//   btn.classList.add("hello-world-btn");
+//   btn.addEventListener("click", () => {
+//     const p = document.createElement("p");
+//     (p.innerHTML = "hello world"), body.append(p);
+//     p.classList.add("hello-world-text");
+//     console.log("Hello,World");
+//   });
+//   body.append(btn);
+// };
+// going to use class property, it is not supported by most browsers, we will use
+// a transpiler for this
+
+var HelloWorldButton =
+/*#__PURE__*/
+function () {
+  function HelloWorldButton() {
+    _classCallCheck(this, HelloWorldButton);
+
+    this.buttonCssClass = "hello-world-button";
+  }
+
+  _createClass(HelloWorldButton, [{
+    key: "render",
+    value: function render() {
+      var button = document.createElement("button");
+      var body = document.querySelector("body");
+      button.innerHTML = "Hello world";
+
+      button.onclick = function () {
+        var p = document.createElement("p");
+        p.innerHTML = "Hello world";
+        p.classList.add("hello-world-text");
+        body.appendChild(p);
+      };
+
+      button.classList.add("hello-world-button");
+      body.appendChild(button);
+    }
+  }]);
+
+  return HelloWorldButton;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (HelloWorldButton);
 
 /***/ }),
 /* 2 */
@@ -156,7 +194,7 @@ if (content.locals) {
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(4);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".hello-world-btn {\n  font-size: 20px;\n  padding: 7px 15px;\n  background: green; }\n\n.hello-world-text {\n  color: red;\n  font-weight: bold; }\n", ""]);
+exports.push([module.i, ".hello-world-button {\n  font-size: 20px;\n  padding: 7px 15px;\n  background: green;\n  color: white;\n  outline: none; }\n\n.hello-world-text {\n  color: red;\n  font-weight: bold; }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -540,18 +578,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _smiley_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7);
 
 
-const addImage = () => {
-  const img = document.createElement("img");
+var addImage = function addImage() {
+  var img = document.createElement("img");
   img.alt = "Smiley face";
   img.width = 300;
   img.src = _smiley_jpg__WEBPACK_IMPORTED_MODULE_0__["default"];
-
-  const body = document.querySelector("body");
+  var body = document.querySelector("body");
   body.append(img);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (addImage);
-
 
 /***/ }),
 /* 7 */

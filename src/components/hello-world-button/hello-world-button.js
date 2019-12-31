@@ -18,19 +18,21 @@ import "./hello-world-button.scss";
 // a transpiler for this
 
 class HelloWorldButton {
-  buttonCssClass = "hello-world-btn";
+  buttonCssClass = "hello-world-button";
+
   render() {
     const button = document.createElement("button");
     const body = document.querySelector("body");
     button.innerHTML = "Hello world";
-    button.onClick = () => {
+    button.onclick = function() {
       const p = document.createElement("p");
-      (p.innerHTML = "hello world"), body.append(p);
+      p.innerHTML = "Hello world";
       p.classList.add("hello-world-text");
+      body.appendChild(p);
     };
-    button.classList.add(this.buttonCssClass);
-    body.append(btn);
+    button.classList.add("hello-world-button");
+    body.appendChild(button);
   }
 }
 
-export default helloWorldButton;
+export default HelloWorldButton;

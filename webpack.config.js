@@ -35,6 +35,19 @@ module.exports = {
         test: /\.(scss)$/,
         // webpack will invoke loders from right to left. so pay attention to this
         use: ["style-loader", "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/env"],
+            //plugins are additional js libararies that do everything that loaders canniot do
+            // they can also modify how the bundles themselves are created
+            plugins: ["transform-class-properties"]
+          }
+        }
       }
     ]
   }
