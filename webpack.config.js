@@ -2,6 +2,7 @@ const path = require("path");
 // we usually dont need webpack plugs in production servers so we always sace as dev depend
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 // minimal webpack config
 module.exports = {
   //entry points
@@ -59,6 +60,15 @@ module.exports = {
     new MiniCssExtractPlugin({
       //we can extract our css into a separate file and even specify the name
       filename: "styles.[contenthash].css"
+    }),
+    //everytime we run webpack this plugin removes all the files from the output folder essentially cleaning it
+    new CleanWebpackPlugin({
+      // i can specify an array of the file pattterns which i want to remove. all patterns are relative to the webpack out.path directory
+      // in this case the build/subgfolder
+      cleanOnceBeforeBuildPatternsPatterns: [
+        "**/*", // this is how build paterns look like and it merans clean everything
+        path.join(process.cwd(), "build/**/*")
+      ]
     })
   ]
 };
