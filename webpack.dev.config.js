@@ -21,6 +21,12 @@ module.exports = {
   // last mandatoryoptions is mode. enables certain build optimzatio for dev and production
   // mode: "none",
   mode: "development",
+  devServer: {
+    // need to specifcy three options
+    contentBase: path.resolve(__dirname, "./dist"),
+    index: "index.html",
+    port: 9000
+  },
   // production would enable a number of -plugins, however development uses source maps for errors
 
   module: {
