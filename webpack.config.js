@@ -54,6 +54,12 @@ module.exports = {
             plugins: ["transform-class-properties"]
           }
         }
+      },
+      {
+        test: /\.hbs$/,
+        use: {
+          loader: "handlebars-loader"
+        }
       }
     ]
   },
@@ -75,11 +81,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "Hello world",
       // this tells webpack to create a subfolder in the dist folder and put the html file inside this folder
-      filename: "subfolder/custom_filename.html",
-      meta: {
-        //this tells webpack to add a desciprtion meta tag to the page
-        description: "Some"
-      }
+      // filename: "subfolder/custom_filename.html",
+      // meta: {
+      //   //this tells webpack to add a desciprtion meta tag to the page
+      //   description: "Some description"
+      // },
+      template: "src/index.hbs",
+      // we use description variable in our hbs template to cusomise the index.html file
+      description: "Some description"
     })
   ]
 };
