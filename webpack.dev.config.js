@@ -11,8 +11,8 @@ module.exports = {
   entry: "./index.js",
   //output file that will be generated as a result of webpack build. file called bundle insde directory called dist
   output: {
-    // add md5 hash to the contents of the file
-    filename: "bundle.[contenthash].js",
+    // dont need handle cachingin dev
+    filename: "bundle.js",
     path: path.resolve(__dirname, "./dist"),
     //  webpack where all generated files are located
     publicPath: ""
@@ -38,12 +38,12 @@ module.exports = {
       },
       {
         test: /\.(css)$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"]
+        use: ["style-loader", "css-loader"]
       },
       {
         test: /\.(scss)$/,
         // webpack will invoke loders from right to left. so pay attention to this
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+        use: ["style-loader", "css-loader", "sass-loader"]
       },
       {
         test: /\.js$/,
@@ -68,10 +68,6 @@ module.exports = {
   },
   plugins: [
     new TerserPlugin(),
-    new MiniCssExtractPlugin({
-      //we can extract our css into a separate file and even specify the name
-      filename: "styles.[contenthash].css"
-    }),
     //everytime we run webpack this plugin removes all the files from the output folder essentially cleaning it
     new CleanWebpackPlugin({
       // i can specify an array of the file pattterns which i want to remove. all patterns are relative to the webpack out.path directory
