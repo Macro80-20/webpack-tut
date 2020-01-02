@@ -18,8 +18,11 @@ module.exports = {
     publicPath: ""
     // to show the a page from website you would use http
   },
-  // last mandatoryoptions is mode
-  mode: "none",
+  // last mandatoryoptions is mode. enables certain build optimzatio for dev and production
+  // mode: "none",
+  mode: "development",
+  // production would enable a number of -plugins, however development uses source maps for errors
+
   module: {
     // each rule is a object itself , with at least two properties
     rules: [
