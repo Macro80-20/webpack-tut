@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin"); // installed via npm
 // minimal webpack config
 module.exports = {
   //entry points
-  entry: "./index.js",
+  entry: "./src/index.js",
   //output file that will be generated as a result of webpack build. file called bundle insde directory called dist
   output: {
     // dont need handle cachingin dev

@@ -1,6 +1,6 @@
-import HelloWorldButton from "./src/components/hello-world-button/hello-world-button";
-import addImage from "./src/add-image.js";
-import Heading from "./src/components/heading/heading";
+import HelloWorldButton from "./components/hello-world-button/hello-world-button";
+import addImage from "./add-image.js";
+import Heading from "./components/heading/heading";
 // helloWorldButton();
 addImage();
 const heading = new Heading();

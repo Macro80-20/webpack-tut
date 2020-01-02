@@ -7,11 +7,15 @@ const HtmlWebpackPlugin = require("html-webpack-plugin"); // installed via npm
 // minimal webpack config
 module.exports = {
   //entry points
-  entry: "./index.js",
+  // entry: "./src/index.js",
+  entry: {
+    "hello-world-page": "./src/hello-world.js",
+    "smiley-page": "./src/smiley.js"
+  },
   //output file that will be generated as a result of webpack build. file called bundle insde directory called dist
   output: {
     // add md5 hash to the contents of the file
-    filename: "bundle.[contenthash].js",
+    filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "./dist"),
     //  webpack where all generated files are located
     publicPath: ""
@@ -68,7 +72,7 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       //we can extract our css into a separate file and even specify the name
-      filename: "styles.[contenthash].css"
+      filename: "[name]-styles.[contenthash].css"
     }),
     //everytime we run webpack this plugin removes all the files from the output folder essentially cleaning it
     new CleanWebpackPlugin({
