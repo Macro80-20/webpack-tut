@@ -8,7 +8,8 @@ module.exports = {
   entry: "./index.js",
   //output file that will be generated as a result of webpack build. file called bundle insde directory called dist
   output: {
-    filename: "bundle.js",
+    // add md5 hash to the contents of the file
+    filename: "bundle.[contenthash].js",
     path: path.resolve(__dirname, "./dist"),
     //  webpack where all generated files are located
     publicPath: "dist/"
@@ -57,7 +58,7 @@ module.exports = {
     new TerserPlugin(),
     new MiniCssExtractPlugin({
       //we can extract our css into a separate file and even specify the name
-      filename: "styles.css"
+      filename: "styles.[contenthash].css"
     })
   ]
 };

@@ -7,5 +7,3 @@ const heading = new Heading();
 heading.render();
 const helloWorldButton = new HelloWorldButton();
 helloWorldButton.render();
-
-// exctract css into separate budnle
