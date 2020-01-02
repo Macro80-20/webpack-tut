@@ -3,6 +3,8 @@ const path = require("path");
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin"); // installed via npm
+
 // minimal webpack config
 module.exports = {
   //entry points
@@ -13,7 +15,7 @@ module.exports = {
     filename: "bundle.[contenthash].js",
     path: path.resolve(__dirname, "./dist"),
     //  webpack where all generated files are located
-    publicPath: "dist/"
+    publicPath: ""
     // to show the a page from website you would use http
   },
   // last mandatoryoptions is mode
@@ -69,6 +71,15 @@ module.exports = {
         "**/*", // this is how build paterns look like and it merans clean everything
         path.join(process.cwd(), "build/**/*")
       ]
+    }),
+    new HtmlWebpackPlugin({
+      title: "Hello world",
+      // this tells webpack to create a subfolder in the dist folder and put the html file inside this folder
+      filename: "subfolder/custom_filename.html",
+      meta: {
+        //this tells webpack to add a desciprtion meta tag to the page
+        description: "Some"
+      }
     })
   ]
 };
