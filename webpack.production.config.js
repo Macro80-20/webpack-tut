@@ -27,7 +27,11 @@ module.exports = {
   // production would enable a number of -plugins, however development uses source maps for errors
   optimization: {
     splitChunks: {
-      chunks: "all"
+      chunks: "all",
+      // if dependencies are larger than 10kb we put them into sep bundle
+      minSize: 5000,
+      // we can also speficiy another name delimiter for this addtional bundle. on the the bundle each file wil be split with a underscrore
+      automaticNameDelimiter: "_"
     }
   },
   module: {

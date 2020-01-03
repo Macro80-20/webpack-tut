@@ -15,3 +15,10 @@ then after running build
 it creartes another budle called vendors which will be cached seprateel and users wont have to download it again when we chang something in js
 since we havea new bundle how does webpack know where to include it?
 so i need to specically tell webpack to include it in every html page that needs it
+
+i will now try to do it wtih react
+when i ruan this we saw no venords
+this is becasue webpack extracts common dependencies only when they exceed 30KB before minification
+it worked with lodash because its more than 30kb
+
+to do this manually by setting threshold size smaller than kb, react is about 17 , so we go optimisation and a new iption

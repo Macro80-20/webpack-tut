@@ -1,7 +1,8 @@
 import Heading from "./components/heading/heading";
 import SmileyImage from "./components/smiley-image/smiley-image";
-import _ from "lodash";
+// import _ from "lodash";
+// import React from "react";
 const heading = new Heading();
-heading.render(_.upperFirst("smiley Page"));
+heading.render("smiley Page");
 const smileyImage = new SmileyImage();
 smileyImage.render();
