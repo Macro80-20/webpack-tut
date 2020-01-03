@@ -8,11 +8,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin"); // installed via npm
 // minimal webpack config
 module.exports = {
   //entry points
-  entry: "./src/index.js",
+  // entry: "./src/index.js",
+  entry: { "hello-world": "./src/hello-world.js", smiley: "./src/smiley.js" },
   //output file that will be generated as a result of webpack build. file called bundle insde directory called dist
   output: {
     // dont need handle cachingin dev
-    filename: "bundle.js",
+    filename: "[name].bundle.js",
     path: path.resolve(__dirname, "./dist"),
     //  webpack where all generated files are located
     publicPath: ""
@@ -85,17 +86,21 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: "Hello world",
-      // this tells webpack to create a subfolder in the dist folder and put the html file inside this folder
-      // filename: "subfolder/custom_filename.html",
-      // meta: {
-      //   //this tells webpack to add a desciprtion meta tag to the page
-      //   description: "Some description"
-      // },
-      template: "src/index.hbs",
-      // we use description variable in our hbs template to cusomise the index.html file
-      description: "Some description"
+      filename: "hello-world-page.html",
+      template: "src/page-template.hbs",
+      description: "Some description",
+      //rememebr chunk wepback takes from the entry points
+      chunks: ["hello-world"]
+    }),
+    new HtmlWebpackPlugin({
+      title: "smiley-page",
+      filename: "smiley-page.html",
+      template: "src/page-template.hbs",
+      description: "Some description",
+      chunks: ["smiley"]
     })
   ]
 };
-
+// we dont need to slit common dependenies into a sep bundle becuase this is the development build
+// when you run dev then you need to access the pages through thwe filnemae as they wont appear in dist
 //in order to run webpack easier we can specificy a escript in json file

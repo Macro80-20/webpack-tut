@@ -22,3 +22,12 @@ this is becasue webpack extracts common dependencies only when they exceed 30KB 
 it worked with lodash because its more than 30kb
 
 to do this manually by setting threshold size smaller than kb, react is about 17 , so we go optimisation and a new iption
+
+up until now after setting custom criteria for common dependenceis e.g what setting the minsize of a dep so that webpack knows wether to create a sep bundle for it
+
+anywho
+
+Up until now i have set up porudction configuration for multiple page applications but as a ressult after every byild i am getting several html files for several
+webpages
+
+now i will lern how to sertup development config for multiplage page applications
