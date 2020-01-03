@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "handlebars": "^4.5.3",
+    "lodash": "^4.17.15",
     "node-sass": "^4.13.0",
     "sass-loader": "^8.0.0"
   }

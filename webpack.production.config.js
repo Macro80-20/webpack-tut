@@ -16,7 +16,7 @@ module.exports = {
     // add md5 hash to the contents of the file
     filename: "[name].[contenthash].js",
     // since i have more than one entrypoint i nee to specify somehwere that their names should be different
-    //webpack will takw the nbme of the property from the entry point configuration and put it in the filename!
+    //webpack will take the name of the property from the entry point configuration and put it in the filename!
     //  webpack where all generated files are located
     publicPath: ""
     // to show the a page from website you would use http
@@ -25,7 +25,11 @@ module.exports = {
   // mode: "none",
   mode: "production",
   // production would enable a number of -plugins, however development uses source maps for errors
-
+  optimization: {
+    splitChunks: {
+      chunks: "all"
+    }
+  },
   module: {
     // each rule is a object itself , with at least two properties
     rules: [
@@ -96,7 +100,7 @@ module.exports = {
       // we use description variable in our hbs template to cusomise the index.html file
       description: "Some description",
       //How do we know which byndles to includes in our html? chunk allows us to do this and must be same name as the js bundle
-      chunks: ["hello-world-page"]
+      chunks: ["hello-world-page", "vendors~hello-world-page~smiley-page"]
     }),
     // need to include two htmplugins if we want to begin to begin bundling for MPA's
     new HtmlWebpackPlugin({
@@ -104,9 +108,9 @@ module.exports = {
       filename: "smiley-face.html",
       template: "src/page-template.hbs",
       description: "smiley face",
-      chunks: ["smiley-page"]
+      chunks: ["smiley-page", "vendors~hello-world-page~smiley-page"]
     })
   ]
 };
-
+// webpack tutorial/dist/.0fb3c467dd6bf788750f.js
 //in order to run webpack easier we can specificy a escript in json file
